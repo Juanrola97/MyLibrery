@@ -89,7 +89,7 @@ public class MainActivity extends AppCompatActivity implements RecyclerAdapter.R
         SearchBooksWs(newText);
         return false;
     }
-    
+
     private void SearchBooksWs(String filter) {
 
         String url = "https://api.itbook.store/1.0/search/" + filter;
