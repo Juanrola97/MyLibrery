@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.mylibrery.R;
 import com.example.mylibrery.model.ItemList;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -40,7 +41,11 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Recycl
     @Override
     public void onBindViewHolder(@NonNull final RecyclerHolder holder, final int position) {
         final ItemList item = items.get(position);
-        // holder.imgItem.setImageResource(item.getImg());
+        //holder.imgItem.setImageResource(item.getImg());
+        Picasso.get()
+                .load(item.getImg())
+                .error(R.mipmap.ic_launcher_round)
+                .into(holder.imgItem);
         holder.tvTitulo.setText(item.getTitulo());
         holder.tvDescripcion.setText(item.getDescripcion());
 
@@ -93,7 +98,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Recycl
         public RecyclerHolder(@NonNull View itemView_1) {
             super(itemView_1);
 
-            // imgItem = itemView.findViewById(R.id.imgItem);
+            imgItem = itemView.findViewById(R.id.imgItem);
             tvTitulo = itemView.findViewById(R.id.tvTitulo);
             tvDescripcion = itemView.findViewById(R.id.tvDescripcion);
         }

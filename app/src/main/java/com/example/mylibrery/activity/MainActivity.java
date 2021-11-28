@@ -85,7 +85,6 @@ public class MainActivity extends AppCompatActivity implements RecyclerAdapter.R
 
     @Override
     public boolean onQueryTextChange(String newText) {
-        // adapter.filter(newText);
         SearchBooksWs(newText);
         return false;
     }
